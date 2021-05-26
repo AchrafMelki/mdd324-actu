@@ -12,12 +12,12 @@ public class Actu {
 
     @Override
     public String toString() {
-        return "Actu{" +
-                "link='" + link + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", pubDate='" + pubDate + '\'' +
-                '}';
+        return '\n'+"Actu{" +'\n'+
+                "link='" + link + '\n' +
+                ", title='" + title + '\n' +
+                ", description='" + description + '\n' +
+                ", pubDate='" + pubDate + '\n' +
+                '}'+'\n';
     }
 
     public Actu(String link, String title, String description, String pubDate) {

@@ -28,10 +28,10 @@ public class ActuService {
         for ( i=1; i<11; i++)
         {
             XPath xPath = XPathFactory.newInstance().newXPath();
-            String expressionLink = "/rss/channel/item[i]/link";
-            String expressionTitle = "/rss/channel/item[i]/title";
-            String expressionDescription = "/rss/channel/item[i]/description";
-            String expressionPubDate = "/rss/channel/item[i]/pubDate";
+            String expressionLink = "/rss/channel/item["+i+"]/link";
+            String expressionTitle = "/rss/channel/item["+i+"]/title";
+            String expressionDescription = "/rss/channel/item["+i+"]/description";
+            String expressionPubDate = "/rss/channel/item["+i+"]/pubDate";
             String Link = ((Node) xPath.compile(expressionLink).evaluate(doc, XPathConstants.NODE)).getTextContent();
             String Title = ((Node) xPath.compile(expressionTitle).evaluate(doc, XPathConstants.NODE)).getTextContent();
             String Description = ((Node) xPath.compile(expressionDescription).evaluate(doc, XPathConstants.NODE)).getTextContent();
