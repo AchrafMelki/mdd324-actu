@@ -3,6 +3,9 @@ package com.ipiecoles;
 
 import java.util.Date;
 
+/**
+ * Model Actu
+ */
 public class Actu {
 
     private String link;
@@ -12,14 +15,21 @@ public class Actu {
 
     @Override
     public String toString() {
-        return '\n'+"Actu{" +'\n'+
-                "link='" + link + '\n' +
-                ", title='" + title + '\n' +
-                ", description='" + description + '\n' +
-                ", pubDate='" + pubDate + '\n' +
-                '}'+'\n';
+        return '\t'+"{"+'\n'+
+                    '\t'+'\t'+"link = " + link + '\n' +
+                    '\t'+'\t'+"title = " + title + '\n' +
+                    '\t'+'\t'+"description = " + description + '\n' +
+                    '\t'+'\t'+"pubDate = " + pubDate + '\n' +
+                '\t'+"}"+'\n';
     }
 
+    /**
+     *  Constructor
+     * @param link
+     * @param title
+     * @param description
+     * @param pubDate
+     */
     public Actu(String link, String title, String description, String pubDate) {
         this.link = link;
         this.title = title;
