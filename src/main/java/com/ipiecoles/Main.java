@@ -6,7 +6,7 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
-        System.out.println(new ActuService().getActuOfTheDayXml());
+        System.out.println(new Handler().handleRequest(null, null));
     }
 
 }
