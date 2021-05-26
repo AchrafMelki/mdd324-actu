@@ -12,25 +12,34 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringJoiner;
 
 public class ActuService {
 
-    public Actu getActuOfTheDayXml() throws Exception{
+    public List<Actu> getActuOfTheDayXml() throws Exception{
         //String contenu = "<quotes> <quote> <author>Moi</author> <quote>Coucou</quote> </quote> </quotes>";
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse("https://www.lemonde.fr/rss/une.xml");
-        XPath xPath = XPathFactory.newInstance().newXPath();
-        String expressionLink = "/actu/link";
-        String expressionTitle = "/actu/title";
-        String expressionDescription = "/actu/description";
-        String expressionPubDate = "/actu/pubdate";
-        String Link = ((Node) xPath.compile(expressionLink).evaluate(doc, XPathConstants.NODE)).getNodeValue();
-        String Title = ((Node) xPath.compile(expressionTitle).evaluate(doc, XPathConstants.NODE)).getNodeValue();
-        String Description = ((Node) xPath.compile(expressionDescription).evaluate(doc, XPathConstants.NODE)).getNodeValue();
-        String PubDate = ((Node) xPath.compile(expressionPubDate).evaluate(doc, XPathConstants.NODE)).getNodeValue();
-        return new Actu(Link, Title, Description, PubDate);
+        int i;
+        List<Actu> actusList = new ArrayList<Actu>();
+        for ( i=1; i<11; i++)
+        {
+            XPath xPath = XPathFactory.newInstance().newXPath();
+            String expressionLink = "/rss/channel/item[i]/link";
+            String expressionTitle = "/rss/channel/item[i]/title";
+            String expressionDescription = "/rss/channel/item[i]/description";
+            String expressionPubDate = "/rss/channel/item[i]/pubDate";
+            String Link = ((Node) xPath.compile(expressionLink).evaluate(doc, XPathConstants.NODE)).getTextContent();
+            String Title = ((Node) xPath.compile(expressionTitle).evaluate(doc, XPathConstants.NODE)).getTextContent();
+            String Description = ((Node) xPath.compile(expressionDescription).evaluate(doc, XPathConstants.NODE)).getTextContent();
+            String PubDate = ((Node) xPath.compile(expressionPubDate).evaluate(doc, XPathConstants.NODE)).getTextContent();
+            Actu actu = new Actu(Link,Title,Description,PubDate);
+            actusList.add(actu);
+        }
+        return actusList;
     }
 
 

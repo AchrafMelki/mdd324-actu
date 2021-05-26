@@ -10,6 +10,16 @@ public class Actu {
     private String description;
     private String pubDate;
 
+    @Override
+    public String toString() {
+        return "Actu{" +
+                "link='" + link + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", pubDate='" + pubDate + '\'' +
+                '}';
+    }
+
     public Actu(String link, String title, String description, String pubDate) {
         this.link = link;
         this.title = title;
@@ -48,4 +58,5 @@ public class Actu {
     public void setPubDate(String pubDate) {
         this.pubDate = pubDate;
     }
+
 }
