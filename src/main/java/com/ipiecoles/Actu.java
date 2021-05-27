@@ -1,16 +1,25 @@
 package com.ipiecoles;
 
-
-import java.util.Date;
-
 /**
- * Model Actu
+ * Model permettant de mapper une actualité récupéré via xml
  */
 public class Actu {
 
+    /**
+     * Le lien de l'actualité
+     */
     private String link;
+    /**
+     * Le titre de l'actualité
+     */
     private String title;
+    /**
+     * La description de l'actualité
+     */
     private String description;
+    /**
+     * la date de publication de l'actualité
+     */
     private String pubDate;
 
     @Override
@@ -25,10 +34,10 @@ public class Actu {
 
     /**
      *  Constructor
-     * @param link
-     * @param title
-     * @param description
-     * @param pubDate
+     * @param link lien de l'article
+     * @param title titre de l'article
+     * @param description description de l'article
+     * @param pubDate date de publication de l'article
      */
     public Actu(String link, String title, String description, String pubDate) {
         this.link = link;
